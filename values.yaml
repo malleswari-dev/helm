@@ -1,6 +1,6 @@
 deployment:
   replicas: 5
-  imageVersion: alpine-slim
+  imageVersion: alpine3.23-slim
 service:  
   type: LoadBalancer
   servicePort: 80
