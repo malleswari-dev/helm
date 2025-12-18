@@ -1,0 +1,5 @@
+deployment:
+  replicas: 5
+  imageVersion: latest
+  type: LoadBalancer
+  servicePort: 80

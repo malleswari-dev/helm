@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels: # these are replicaset labels
+    # purpose: dp-demo
+    purpose: helm-demo
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector: # this labels are used to select pods
+    matchLabels:
+      purpose: helm-demo
+      project: roboshop
+  # pod defination    
+  template:
+    metadata:
+      labels:
+        purpose: helm-demo
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+       # image: nginx:trixie-perl
+        image: nginx:{{ .Values.deployment.imageVersion }}
